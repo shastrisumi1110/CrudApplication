@@ -2,7 +2,6 @@ package com.Sumiran.Dode.CrudApplication.controllers;
 
 import com.Sumiran.Dode.CrudApplication.model.Employee;
 import com.Sumiran.Dode.CrudApplication.service.EmployeeServiceImpl;
-import jakarta.persistence.PostUpdate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -16,6 +15,7 @@ public class EmployeeController {
 
     @Autowired
     private EmployeeServiceImpl employeeService;
+
 
     @PostMapping("/addEmp")
     public ResponseEntity<Employee> addEmployee(@RequestBody Employee employee){
@@ -41,10 +41,14 @@ public class EmployeeController {
         return new ResponseEntity<List<Employee>>(empList,HttpStatus.ACCEPTED);
     }
 
-    @PutMapping("/update/{id}")
+    @PutMapping("/updateEmp/{id}")
     public ResponseEntity<String> updateEmp(@PathVariable int id){
         employeeService.updateEmployee(id);
         return new ResponseEntity<String>("Updated Successfully",HttpStatus.ACCEPTED);
     }
+
+
+
+
 
 }

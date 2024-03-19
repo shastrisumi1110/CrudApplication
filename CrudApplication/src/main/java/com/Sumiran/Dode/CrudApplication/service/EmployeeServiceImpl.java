@@ -49,7 +49,7 @@ public class EmployeeServiceImpl implements EmployeeService{
         if(emp.isPresent()){
             Employee employee = new Employee();
             employeeRepo.save(employee);
-            return "Updated Successfully";
+            return "Updated Successfull";
         }else{
             return "Employee Not Found";
         }
